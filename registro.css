@@ -1,0 +1,35 @@
+body {
+  background-color: #f8f9fa;
+  font-family: 'Arial', sans-serif;
+}
+
+.card {
+  border: none;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: #343a40;
+  font-weight: bold;
+}
+
+.input-group-text {
+  background-color: #343a40;
+  color: #ffffff;
+}
+
+.form-control:focus {
+  border-color: #343a40;
+  box-shadow: none;
+}
+
+.btn-primary {
+  background-color: #343a40;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #212529;
+}
