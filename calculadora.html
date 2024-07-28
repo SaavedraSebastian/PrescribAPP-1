@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Acciones Penales</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style2.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Plataforma de Acciones Penales</h1>
+        <div class="info-text text-center mb-4">
+            <p>Bienvenido a la plataforma de gestión de acciones penales. Seleccione una acción penal para continuar.</p>
+        </div>
+
+        <div id="consulta-info" class="text-center mb-4"></div>
+
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card" onclick="showForm('accion1')">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Procesos de Alimentos</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card" onclick="showForm('accion2')">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Prescripción Adquisitiva Corta</h5>
+                    </div>
+                </div>
+            </div>
+            <!--PRESCRIONES NUEVAS -->
+            <div class="col-md-4 mb-4">
+                <div class="card" onclick="showForm('accion3')">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Delitos de Libertad Sexual</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card" onclick="showForm('accion4')">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Delitos de Extorsión</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card" onclick="showForm('accion5')">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Demanda de Divorcio por Adulterio</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card" onclick="showForm('accion6')">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Responsabilidad Civil de los Jueces</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card" onclick="showForm('accion7')">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Delitos Cometidos por Funcionarios y Servidores Públicos</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card" onclick="showForm('accion8')">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Delitos de Omisión de Asistencia Familiar</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card" onclick="showForm('accion9')">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Demanda de Indemnización por Daños y Perjuicios</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="accion1" class="form-container" style="display:none;">
+            <div class="form-content">
+                <div class="form-options">
+                    <h3 id="formHeader" class="form-header">Acción</h3>
+                    <form id="formAccion">
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <label for="nombre1" class="form-label">Nombre Completo</label>
+                                <input type="text" class="form-control" id="nombre1" placeholder="Nombre Completo" required>
+                            </div>
+                        </div>
+                          <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="documento" class="form-label">Documento de Identidad</label>
+                                <input type="number" class="form-control" id="documento" placeholder="Dni" required>
+                            </div>
+                       
+                            <div class="col-md-6">
+                                <label for="fechanacimiento" class="form-label">Fecha de Nacimiento</label>
+                                <input type="date" class="form-control" id="fechanacimiento" required>
+                             </div>
+                               </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="direccion" class="form-label">Dirección</label>
+                                <input type="text" class="form-control" id="direccion" placeholder="Dirección" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="telefono" class="form-label">Teléfono</label>
+                                <input type="number" class="form-control" id="telefono" placeholder="Teléfono" required>
+                            </div>
+                            </div>
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <label for="email" class="form-label">Correo Electrónico</label>
+                                <input type="email" class="form-control" id="email" placeholder="Correo Electrónico" required>
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-3">
+                            <label for="fecha1" class="form-label">Fecha de Notificación</label>
+                            <input type="date" class="form-control" id="fecha1" required>
+                        </div>
+                        <div class="mb-3 form-check form-switch">
+                            <input type="checkbox" class="form-check-input" id="diasHabiles1">
+                            <label class="form-check-label" for="diasHabiles1">Sólo días hábiles</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Calcular</button>
+                    </form>
+                </div>
+                <div class="form-results mt-4">
+                    <h4 class="form-header">Fecha de Vencimiento:</h4>
+                    <div class="mb-3">
+                        <label id="diafin" class="form-label">Día:</label>
+                        <p id="fechaVencimiento" class="form-control-static text-center">00/00/0000</p>
+                    </div>
+                    <h5 class="form-header">Días No Contabilizados:</h5>
+                    <ul class="list-group">
+                        <li class="list-group-item">Sábados: <span id="sabados" class="badge bg-secondary float-end">00</span></li>
+                        <li class="list-group-item">Domingos: <span id="domingos" class="badge bg-secondary float-end">00</span></li>
+                        <li class="list-group-item">Feriados Nacionales: <span id="feriadosNacionales" class="badge bg-secondary float-end">00</span></li>
+                        <li class="list-group-item">Feriados Personalizados: <span id="feriadosPersonalizados" class="badge bg-secondary float-end">00</span></li>
+                        <li class="list-group-item">Días para Vencimiento: <span id="diasVencimiento" class="badge bg-secondary float-end">00</span></li>
+                    </ul>
+                    <p id="mensajePrescripcion" class="mt-3"></p>
+                    <button type="button" class="btn btn-secondary mt-3" onclick="agendarEvento()">Agendar</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="infoModalLabel">Bienvenido a PrescriApp</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="step1" class="step">
+                        <h6>Paso 1: Selecciona la Acción Penal</h6>
+                        <p>Elige la acción penal para la que deseas calcular los plazos procesales. Cada opción te llevará a un formulario.</p>
+                    </div>
+                    <div id="step2" class="step" style="display: none;">
+                        <h6>Paso 2: Completa el Formulario</h6>
+                        <p>Introduce los detalles necesarios, como los datos personales de la persona que realizará la acción seleccionada, la fecha de notificación. Asegúrate de llenar todos los campos requeridos.</p>
+                    </div>
+                    <div id="step3" class="step" style="display: none;">
+                        <h6>Paso 3: Revisa los Resultados</h6>
+                        <p>Una vez que hayas enviado el formulario, revisa los resultados a la derecha para ver la fecha de vencimiento y los días no contabilizados.</p>
+                    </div>
+                    <div id="step4" class="step" style="display: none;">
+                        <h6>Paso 4: Agenda la acción seleccionada</h6>
+                        <p>Sigue estos pasos para agendar la fecha de vencimiento de la acción penal en tu calendario:</p>
+                        <ol>
+                            <li>Revisa la fecha de vencimiento proporcionada en la sección de resultados.</li>
+                            <li>Haz clic en el botón "Agendar" que se encuentra debajo de los resultados.</li>
+                            <li>Se abrirá una nueva ventana de Google Calendar con los detalles del evento ya completados.</li>
+                            <li>Verifica que toda la información en el evento sea correcta, incluyendo la fecha y hora.</li>
+                            <li>Si deseas agregar más detalles o ajustar alguna información, puedes hacerlo directamente en Google Calendar.</li>
+                            <li>Finalmente, haz clic en "Guardar" para añadir el evento a tu calendario.</li>
+                        </ol>
+                        <p>Recuerda que puedes invitar a otras personas al evento ingresando sus correos electrónicos en el campo correspondiente antes de agendar el evento. Esto les permitirá recibir una invitación para el evento y estar al tanto de la fecha de vencimiento.</p>
+                        <p>Si tienes alguna duda o necesitas asistencia adicional, no dudes en ponerte en contacto con nuestro equipo de soporte.</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="prevStep"><i class="fa-solid fa-arrow-left"></i></button>
+                    <button type="button" class="btn btn-primary" id="nextStep"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<script>
+    const actions = {
+        accion1: {
+            title: 'Procesos de Alimentos',
+            days: 25 + 5 + 20 
+        },
+        accion2: {
+            title: 'Prescripción Adquisitiva Corta',
+            days: 15 + 10 + 5 
+        },
+        accion3: {
+            title: 'Delitos de Libertad Sexual',
+            days: 15 + 10 + 5 
+        },
+    accion4: {
+        title: 'Delitos de Extorsión',
+        days: 15 + 10 + 5 
+    },
+    accion5: {
+        title: 'Demanda de Divorcio por Adulterio',
+        days: 15 + 10 + 5 
+    },
+        accion6: {
+            title: 'Responsabilidad Civil de los Jueces',
+            days: 15 + 10 + 5 
+        },
+        accion7: {
+            title: 'Delitos Cometidos por Funcionarios y Servidores Públicos',
+            days: 15 + 10 + 5 
+        },
+        accion8: {
+            title: 'Delitos de Omisión de Asistencia Familiar',
+            days: 15 + 10 + 5 
+        },
+        accion9: {
+            title: 'Demanda de Indemnización por Daños y Perjuicios',
+            days: 15 + 10 + 5 
+        },
+        
+    };
+    function showForm(actionId) {
+        // Oculta todos los formularios
+        const forms = document.querySelectorAll('.form-container');
+        forms.forEach(form => form.style.display = 'none');
+
+        // Muestra el formulario seleccionado
+        const selectedForm = document.getElementById('accion1');
+        if (selectedForm && actions[actionId]) {
+            selectedForm.style.display = 'block';
+            document.getElementById('formHeader').innerText = actions[actionId].title;
+            selectedForm.dataset.action = actionId; // Store the action ID in the form container
+        }
+    }
+
+    document.getElementById('formAccion').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const actionId = this.closest('.form-container').dataset.action;
+        const fechaNotificacion = document.getElementById('fecha1').value;
+        const diasHabiles = document.getElementById('diasHabiles1').checked;
+
+        if (fechaNotificacion && actions[actionId]) {
+            const resultado = calcularFechaVencimiento(fechaNotificacion, diasHabiles, actions[actionId].days);
+            document.getElementById('fechaVencimiento').innerText = resultado.fechaVencimiento.toLocaleDateString();
+            document.getElementById('sabados').innerText = resultado.sabados;
+            document.getElementById('domingos').innerText = resultado.domingos;
+            document.getElementById('feriadosNacionales').innerText = resultado.feriadosNacionales;
+            document.getElementById('feriadosPersonalizados').innerText = resultado.feriadosPersonalizados;
+            document.getElementById('diasVencimiento').innerText = resultado.diasTotal;
+        } else {
+            alert('Por favor, complete todos los campos.');
+        }
+    });
+
+    function calcularFechaVencimiento(fechaNotificacion, diasHabiles, totalDias) {
+        const fecha = new Date(fechaNotificacion);
+        let sabados = 0;
+        let domingos = 0;
+        let feriadosNacionales = 0;
+        let feriadosPersonalizados = 0;
+
+        let diasTotal = 0;
+        for (let i = 0; i < totalDias; i++) {
+            fecha.setDate(fecha.getDate() + 1);
+            if (diasHabiles) {
+                while (fecha.getDay() === 6 || fecha.getDay() === 0 || esFeriadoNacional(fecha)) {
+                    if (fecha.getDay() === 6) sabados++;
+                    if (fecha.getDay() === 0) domingos++;
+                    if (esFeriadoNacional(fecha)) feriadosNacionales++;
+                    if (esFeriadoPersonalizado(fecha)) feriadosPersonalizados++;
+
+                    fecha.setDate(fecha.getDate() + 1);
+                }
+            }
+            diasTotal++;
+        }
+        return {
+            fechaVencimiento: fecha,
+            sabados: sabados,
+            domingos: domingos,
+            feriadosNacionales: feriadosNacionales,
+            feriadosPersonalizados: feriadosPersonalizados,
+            diasTotal: diasTotal
+        };
+    }
+
+    function esFeriadoNacional(fecha) {
+        const feriados = [
+            '01/01', 
+            '28/03', 
+            '29/03', 
+            '01/05', 
+            '07/06', 
+            '29/06', 
+            '23/07', 
+            '28/07', 
+            '29/07', 
+            '06/08', 
+            '30/08', 
+            '08/10', 
+            '01/11', 
+            '08/12', 
+            '09/12', 
+            '25/12', 
+            '31/12',   
+        ];
+        const dia = ('0' + fecha.getDate()).slice(-2);
+        const mes = ('0' + (fecha.getMonth() + 1)).slice(-2);
+        return feriados.includes(`${dia}/${mes}`);
+    }
+
+    function esFeriadoPersonalizado(fecha) {
+        return false;
+    }
+
+    function agendarEvento() {
+        const fechaVencimiento = document.getElementById('fechaVencimiento').innerText;
+        const eventoFecha = new Date(fechaVencimiento.split('/').reverse().join('-'));
+        const titulo = "Fecha de vencimiento de acción penal";
+        const descripcion = "Recordatorio del evento de vencimiento.";
+        const correoInvitado = document.getElementById('email').value;
+
+        const url = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(titulo)}&details=${encodeURIComponent(descripcion)}&dates=${eventoFecha.toISOString().replace(/-|:|\.\d\d\d/g, "")}/${eventoFecha.toISOString().replace(/-|:|\.\d\d\d/g, "")}&add=${correoInvitado}`;
+
+        window.open(url, '_blank');
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        var modal = new bootstrap.Modal(document.getElementById('infoModal'), {
+            keyboard: false
+        });
+        modal.show();
+
+        var currentStep = 1;
+        var steps = document.querySelectorAll('.step');
+
+        function showStep(step) {
+            steps.forEach(function(el, index) {
+                el.style.display = (index === step - 1) ? 'block' : 'none';
+            });
+        }
+
+        document.getElementById('nextStep').addEventListener('click', function() {
+            if (currentStep < steps.length) {
+                currentStep++;
+                showStep(currentStep);
+            }
+        });
+
+        document.getElementById('prevStep').addEventListener('click', function() {
+            if (currentStep > 1) {
+                currentStep--;
+                showStep(currentStep);
+            }
+        });
+
+        showStep(currentStep);
+    });
+
+</script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    
+</body>
+</html>
