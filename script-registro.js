@@ -1,39 +1,27 @@
-let db;
-const request = indexedDB.open("usuariosDB", 1);
+import { auth, db } from './firebase-config.js';
+import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
+import { doc, setDoc } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore.js";
 
-request.onupgradeneeded = function(event) {
-    db = event.target.result;
-    const objectStore = db.createObjectStore("usuarios", { keyPath: "email" });
-    objectStore.createIndex("nombre", "nombre", { unique: false });
-    objectStore.createIndex("password", "password", { unique: false });
-};
+document.getElementById('registroForm').addEventListener('submit', async (event) => {
+  event.preventDefault();
+  
+  const nombre = document.getElementById('nombreRegistro').value;
+  const email = document.getElementById('emailRegistro').value;
+  const password = document.getElementById('passwordRegistro').value;
 
-request.onsuccess = function(event) {
-    db = event.target.result;
-};
+  try {
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    const user = userCredential.user;
 
-request.onerror = function(event) {
-    console.log("Error al abrir la base de datos:", event.target.error);
-};
+    await setDoc(doc(db, 'usuarios', user.uid), {
+      nombre: nombre,
+      email: email
+    });
 
-function registrarUsuario(event) {
-    event.preventDefault();
-    const nombre = document.getElementById('nombreRegistro').value;
-    const email = document.getElementById('emailRegistro').value;
-    const password = document.getElementById('passwordRegistro').value;
-
-    const transaction = db.transaction(["usuarios"], "readwrite");
-    const objectStore = transaction.objectStore("usuarios");
-    const request = objectStore.add({ nombre, email, password });
-
-    request.onsuccess = function() {
-        alert("Usuario registrado con éxito.");
-        window.location.href = "iniciar.html";  
-    };
-
-    request.onerror = function(event) {
-        alert("Error al registrar el usuario:", event.target.error);
-    };
-}
-
-document.getElementById('registroForm').addEventListener('submit', registrarUsuario);
+    alert('Usuario registrado con éxito.');
+    window.location.href = 'iniciar.html';
+  } catch (error) {
+    console.error('Error al registrar el usuario:', error);
+    alert('Error al registrar el usuario: ' + error.message);
+  }
+});
