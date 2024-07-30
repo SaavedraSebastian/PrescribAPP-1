@@ -10,6 +10,7 @@ request.onupgradeneeded = function(event) {
 
 request.onsuccess = function(event) {
     db = event.target.result;
+    console.log("Base de datos abierta con éxito");
 };
 
 request.onerror = function(event) {
@@ -18,6 +19,12 @@ request.onerror = function(event) {
 
 function registrarUsuario(event) {
     event.preventDefault();
+
+    if (!db) {
+        alert("Base de datos no está lista");
+        return;
+    }
+
     const nombre = document.getElementById('nombreRegistro').value;
     const email = document.getElementById('emailRegistro').value;
     const password = document.getElementById('passwordRegistro').value;
