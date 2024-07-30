@@ -35,13 +35,6 @@
             </div>
             <!--PRESCRIONES NUEVAS -->
             <div class="col-md-4 mb-4">
-                <div class="card" onclick="showForm('accion3')">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Delitos de Libertad Sexual</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
                 <div class="card" onclick="showForm('accion4')">
                     <div class="card-body text-center">
                         <h5 class="card-title">Delitos de Extorsión</h5>
@@ -77,9 +70,9 @@
                 </div>
             </div>
             <div class="col-md-4 mb-4">
-                <div class="card" onclick="showForm('accion9')">
+                <div class="card" onclick="showForm('accion10')">
                     <div class="card-body text-center">
-                        <h5 class="card-title">Demanda de Indemnización por Daños y Perjuicios</h5>
+                        <h5 class="card-title">Prescripción Adquisitiva Larga</h5>
                     </div>
                 </div>
             </div>
@@ -156,6 +149,7 @@
         </div>
 
     </div>
+    
     <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -208,49 +202,48 @@
         },
         accion2: {
             title: 'Prescripción Adquisitiva Corta',
-            days: 15 + 10 + 5 
-        },
-        accion3: {
-            title: 'Delitos de Libertad Sexual',
-            days: 15 + 10 + 5 
+            days: 1825
         },
     accion4: {
         title: 'Delitos de Extorsión',
-        days: 15 + 10 + 5 
+        days: 5475
     },
     accion5: {
         title: 'Demanda de Divorcio por Adulterio',
-        days: 15 + 10 + 5 
+        days: 183 
     },
         accion6: {
             title: 'Responsabilidad Civil de los Jueces',
-            days: 15 + 10 + 5 
+            days: 90
         },
         accion7: {
             title: 'Delitos Cometidos por Funcionarios y Servidores Públicos',
-            days: 15 + 10 + 5 
+            days: 1461 + 183 
         },
         accion8: {
             title: 'Delitos de Omisión de Asistencia Familiar',
-            days: 15 + 10 + 5 
+            days: 1461 + 183 
         },
-        accion9: {
-            title: 'Demanda de Indemnización por Daños y Perjuicios',
-            days: 15 + 10 + 5 
+        accion10: {
+            title: 'Prescripción Adquisitiva Larga',
+            days: 3650
         },
-        
     };
     function showForm(actionId) {
-        // Oculta todos los formularios
         const forms = document.querySelectorAll('.form-container');
         forms.forEach(form => form.style.display = 'none');
+        forms.forEach(form => {
+            if (form.style.display === 'block') {
+                form.reset(); 
+            }
+        });
 
-        // Muestra el formulario seleccionado
+       
         const selectedForm = document.getElementById('accion1');
         if (selectedForm && actions[actionId]) {
             selectedForm.style.display = 'block';
             document.getElementById('formHeader').innerText = actions[actionId].title;
-            selectedForm.dataset.action = actionId; // Store the action ID in the form container
+            selectedForm.dataset.action = actionId; 
         }
     }
 
@@ -260,18 +253,35 @@
         const fechaNotificacion = document.getElementById('fecha1').value;
         const diasHabiles = document.getElementById('diasHabiles1').checked;
 
-        if (fechaNotificacion && actions[actionId]) {
-            const resultado = calcularFechaVencimiento(fechaNotificacion, diasHabiles, actions[actionId].days);
-            document.getElementById('fechaVencimiento').innerText = resultado.fechaVencimiento.toLocaleDateString();
-            document.getElementById('sabados').innerText = resultado.sabados;
-            document.getElementById('domingos').innerText = resultado.domingos;
-            document.getElementById('feriadosNacionales').innerText = resultado.feriadosNacionales;
-            document.getElementById('feriadosPersonalizados').innerText = resultado.feriadosPersonalizados;
-            document.getElementById('diasVencimiento').innerText = resultado.diasTotal;
-        } else {
-            alert('Por favor, complete todos los campos.');
-        }
-    });
+         if (fechaNotificacion && actions[actionId]) {
+                const resultado = calcularFechaVencimiento(fechaNotificacion, diasHabiles, actions[actionId].days);
+                const fechaVencimiento = new Date(resultado.fechaVencimiento);
+
+       
+                const hoy = new Date();
+                if (fechaVencimiento < hoy) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Acción Prescrita',
+                        text: 'La acción penal ha prescrito. No se puede registrar.',
+                    });
+                    return;
+                }
+
+                document.getElementById('fechaVencimiento').innerText = resultado.fechaVencimiento.toLocaleDateString();
+                document.getElementById('sabados').innerText = resultado.sabados;
+                document.getElementById('domingos').innerText = resultado.domingos;
+                document.getElementById('feriadosNacionales').innerText = resultado.feriadosNacionales;
+                document.getElementById('feriadosPersonalizados').innerText = resultado.feriadosPersonalizados;
+                document.getElementById('diasVencimiento').innerText = resultado.diasTotal;
+            } else {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Campos Incompletos',
+                    text: 'Por favor, complete todos los campos.',
+                });
+            }
+        });
 
     function calcularFechaVencimiento(fechaNotificacion, diasHabiles, totalDias) {
         const fecha = new Date(fechaNotificacion);
@@ -376,10 +386,12 @@
 
         showStep(currentStep);
     });
+    
 
 </script>
+    
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
 </body>
 </html>

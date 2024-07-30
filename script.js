@@ -153,24 +153,7 @@ request.onsuccess = function(event) {
 request.onerror = function(event) {
     console.log("Error al abrir la base de datos:", event.target.error);
 };
-
-// Función para registrar usuarios
-function registrarUsuario(event) {
-    event.preventDefault();
-    const nombre = document.getElementById('nombreRegistro').value;
-    const email = document.getElementById('emailRegistro').value;
-    const password = document.getElementById('passwordRegistro').value;
-
-    const transaction = db.transaction(["usuarios"], "readwrite");
-    const objectStore = transaction.objectStore("usuarios");
-    const request = objectStore.add({ nombre, email, password });
-
-    request.onsuccess = function() {
-        alert("Usuario registrado con éxito.");
-    };
-
-    request.onerror = function(event) {
-        alert("Error al registrar el usuario:", event.target.error);
-    };
-}
-
+document.getElementById('btn-gratuito').addEventListener('click', function() {
+    document.getElementById('plan-premium').classList.add('highlight-border');
+    document.getElementById('plan-corporativo').classList.add('highlight-border');
+});

@@ -1,5 +1,5 @@
 body {
-  background-color: #f8f9fa;
+  background: url('bg10.jpeg');
   font-family: 'Arial', sans-serif;
 }
 
@@ -33,3 +33,4 @@ h2 {
 .btn-primary:hover {
   background-color: #212529;
 }
+

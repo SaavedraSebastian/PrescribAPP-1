@@ -150,11 +150,10 @@ img {
 .btn-brand {
   padding: 9px 24px;
   font-weight: 500;
-  background: #fff;
-  color: black;
-  border: 2px solid #2A552A;
-  border-radius: 50px;
+  background: #2A552A;
+  color: white;
   text-decoration: none;
+  border:none;
 }
 
 .mb-03 {
@@ -237,7 +236,7 @@ img {
 
 .btn-brand:hover {
   color: white;
-  background: #159FDC;
+  background: #2A552A;
 }
 
 .btn-outline-light {
@@ -487,12 +486,12 @@ img {
 .about-two_pattern-two {
   position: absolute;
   right: 100px;
-  top: 30px;
+  top: 50px;
   width: 123px;
   height: 242px;
   background-repeat: no-repeat;
   background: url('pattern-13.png');
-  margin-right: 250px;
+  margin-right: 530px;
 }
 
 .about-tree_pattern-tree {
@@ -503,7 +502,6 @@ img {
   height: 242px;
   background-repeat: no-repeat;
   background: url('pattern-13.png');
-  margin-right: 250px;
 }
 
 .about-two_pattern-two,
@@ -554,7 +552,6 @@ img {
 }
 
 .img-fluid-6 {
-  margin-left: 100px;
   height: 350px;
   margin-top: -200px;
   width: 400px;
@@ -571,6 +568,7 @@ img {
   margin-top: 270px;
   width: 370px;
   border-radius: 30px 100px;
+  margin-left: 50px;
 }
 
 .text-end {
@@ -1064,7 +1062,7 @@ p {
 
 .titulo-contacto {
   font-weight: 800 !important;
-  color: #999;
+  color: #b1ae3e;
   font-size: 44px;
   font-family: "Arimo", sans-serif;
   font-optical-sizing: auto;
@@ -1293,6 +1291,11 @@ p {
 .link-contacto:hover {
   text-decoration: underline;
 }
+.highlight-border {
+    border: 2px solid #FFD700; 
+    border-radius: 10px; 
+}
+
 
 .a-personal {
   text-decoration: none;
@@ -1463,9 +1466,26 @@ footer {
      display: block;
      unicode-bidi: isolate;
    }
+   .a-personal {
+     text-decoration: none;
+     color: white;
+     padding: 10px 28px;
+     border-radius: 10px;
+     margin-right: 15px;
+     background: #2A552A;
+     font-family: "Roboto Condensed", sans-serif;
+   }
+   .a-empresarial {
+     text-decoration: none;
+     color: black;
+     padding: 10px 28px;
+     border-radius: 10px;
+     background: white;
+     font-family: "Roboto Condensed", sans-serif;
+   }
 
    }
- @media (min-width: 601px) and (max-width: 1024px){ 
+ @media (min-width: 601px) and (max-width: 768px){ 
    .logo-img{
       width: 500px;
     }
@@ -1528,18 +1548,47 @@ footer {
         transition: background-color 0.5s ease, color 0.5s ease;
       font-size: 14px;
     }
-    .img-fluid-6 {
-       display: none;
-    }
-    .img-fluid-8 {
-        display: none;
-    }
-    .about-two_pattern-two {
-        display: none;
-    }
-    .about-tree_pattern-tree {
-      display: none;
-    }
+   .about-two{
+     display:none;
+   }
+   .col-12, .col-md-6, .col-md-3 {
+       padding: 0;
+       margin: 0;
+   }
+   .about-two_pattern-two {
+     position: absolute;
+     right: 100px;
+     top: 50px;
+     width: 123px;
+     height: 242px;
+     background-repeat: no-repeat;
+     background: url('pattern-13.png');
+     margin-right: 530px;
+   }
+
+   .about-tree_pattern-tree {
+           position: absolute;
+           right: 200px;
+           top: -400px;
+           width: 100px;
+           height: 150px;
+           background-repeat: no-repeat;
+           background: url(pattern-13.png);
+       }
+   
+   .img-fluid-6 {
+     height: 200px;
+     margin-top: -50px;
+     width: 170px;
+     border-radius: 100px 30px;
+   }
+   .img-fluid-8 {
+     height: 150px;
+     margin-top: 270px;
+     width: 250px;
+     border-radius: 30px 100px;
+     margin-left: 50px;
+   }
      .bg-cover-nosotros {
        background-size: cover;
        padding: 10px 0;
@@ -1554,7 +1603,66 @@ footer {
     }
    
  }
-@media (min-width: 1025px) and (max-width: 1440px) {
+@media (min-width: 769px) and (max-width: 1024px) {
+  .img-fluid-8 {
+      height: 300px;
+      margin-top: 270px;
+      width: 300px;
+      border-radius: 30px 100px;
+      margin-left: 50px;
+  }
+  .img-fluid-6 {
+      height: 300px;
+      margin-top: -200px;
+      width: 250px;
+      border-radius: 100px 30px;
+  }
+  .about-tree_pattern-tree {
+      position: absolute;
+      right: 10px;
+      top: -500px;
+      width: 123px;
+      height: 200px;
+      background-repeat: no-repeat;
+      background: url(pattern-13.png);
+  }
+  .about-two_pattern-two {
+          position: absolute;
+          right: 190px;
+          top: 250px;
+          width: 123px;
+          height: 200px;
+          background-repeat: no-repeat;
+          background: url(pattern-13.png);
+          margin-right: 100px;
+      }
 }
-
-   
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .img-fluid-6 {
+      height: 350px;
+      margin-top: -200px;
+      width: 400px;
+      border-radius: 100px 30px;
+      margin-left: -50px;
+  }
+  .about-two_pattern-two {
+      position: absolute;
+      right: 100px;
+      top: 50px;
+      width: 123px;
+      height: 242px;
+      background-repeat: no-repeat;
+      background: url(pattern-13.png);
+      margin-right: 350px;
+  }
+  .about-tree_pattern-tree {
+      position: absolute;
+      right: 130px;
+      top: -250px;
+      width: 123px;
+      height: 242px;
+      background-repeat: no-repeat;
+      background: url(pattern-13.png);
+  }
+}
+  
