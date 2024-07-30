@@ -3,6 +3,7 @@ const request = indexedDB.open("usuariosDB", 1);
 
 request.onsuccess = function(event) {
     db = event.target.result;
+    console.log("Base de datos abierta con éxito");
 };
 
 request.onerror = function(event) {
@@ -11,6 +12,12 @@ request.onerror = function(event) {
 
 function iniciarSesion(event) {
     event.preventDefault();
+
+    if (!db) {
+        alert("Base de datos no está lista");
+        return;
+    }
+
     const email = document.getElementById('emailInicio').value;
     const password = document.getElementById('passwordInicio').value;
 
@@ -22,20 +29,20 @@ function iniciarSesion(event) {
         const usuario = event.target.result;
         if (usuario && usuario.password === password) {
             swal({
-                    title: "Bienvenido " + usuario.nombre,
-                    text: "Inicio de sesión exitoso",
-                    icon: "success"
-                }).then(() => {
-                    setTimeout(function() {
-                        window.location.href = "calculadora.html";
-                    }, 500);
-                });
-            } else {
+                title: "Bienvenido " + usuario.nombre,
+                text: "Inicio de sesión exitoso",
+                icon: "success"
+            }).then(() => {
+                setTimeout(function() {
+                    window.location.href = "calculadora.html";
+                }, 500);
+            });
+        } else {
             swal({
-              title: "Good job!",
-              text: "You clicked the button!",
-              icon: "error",
-              button: "Aww yiss!",
+                title: "Error",
+                text: "Credenciales incorrectas",
+                icon: "error",
+                button: "Intentar de nuevo"
             });
         }
     };
@@ -46,4 +53,3 @@ function iniciarSesion(event) {
 }
 
 document.getElementById('inicioSesionForm').addEventListener('submit', iniciarSesion);
-
